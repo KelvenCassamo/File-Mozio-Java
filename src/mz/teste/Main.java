@@ -7,19 +7,23 @@ import mz.filemozio.interfaces.ObjectReadListener;
 import mz.filemozio.interfaces.ObjectWriteListener;
 
 public class Main {
-    private static ArrayList<String> a;
+    private static ArrayList<String> nomes;
 
     public static void main(String[] args) {
 
         FileMozio files = new FileMozio();
 
-        a = new ArrayList<>();
-        /*
-         * for (int i = 0; i < 100; i++) {
-         * a.add("Cassamo" + 100 * i);
-         * 
-         * }
-         */
+        nomes = new ArrayList<>();
+        nomes.add("Allen");
+        nomes.add("Kelven");
+        nomes.add("Emiliana");
+        nomes.add("Enoque");
+        nomes.add("Kespar");
+        nomes.add("Faimo");
+        nomes.add("António");
+        nomes.add("Khelon");
+        nomes.add("Ian");
+        nomes.add("Edilson");
 
         /// Criar listener para receber os resulados do objecto salvo.
         files.createObjectWriteListener(new ObjectWriteListener() {
@@ -39,7 +43,7 @@ public class Main {
                 System.out.println(message);
             }
         });
-        files.writeObject(a, "cassamo.bin");
+        files.writeObject(nomes, "cassamo.bin");
 
         /// Criar listener para receber os resulados da leitura.
         files.createObjectReadListener(new ObjectReadListener() {
@@ -51,9 +55,9 @@ public class Main {
 
             @Override
             public void onSuccess(Object object, String path) {
-                a = (ArrayList<String>) object;
+                nomes = (ArrayList<String>) object;
 
-                for (var item : a) {
+                for (var item : nomes) {
                     System.out.println("ITEM: " + item);
 
                 }
