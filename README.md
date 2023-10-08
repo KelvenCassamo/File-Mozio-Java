@@ -185,11 +185,15 @@ String arquivo = "dados/nomes.bin";
 
 Para obter detalhes sobre cada versão, veja as [Notas de Versão](https://github.com/KelvenCassamo/File-Mozio-Java-releases).
 
-## Como Usar
+## Instalação manual
 
 Atualmente, o FileMozio não está disponível no repositório Maven Central. Mas pode adicionar a biblioteca manualmente projecto basta seguir as [instruções de instalação](#Instalação).
 
+## Contribuição
+As contribuições são bem-vindas! Pode sentir-se à vontade para abrir uma [(issue)](https://github.com/KelvenCassamo/File-Mozio-Java/issues) ou enviar [(pull requests)](https://github.com/KelvenCassamo/File-Mozio-Java/pulls) para melhorar a biblioteca.
 
+## Licença
+Este projecto está licenciado sob a Licença MIT. Pode ver no arquivo [LICENSE.md](https://github.com/KelvenCassamo/File-Mozio-Java/blob/main/LICENSE) para detalhes.
 
 
 
