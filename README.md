@@ -1,46 +1,49 @@
-# FileMozio (Java) 
-O **FileMozio** é uma biblioteca Java simples para manipulação de arquivos, focado em leitura e escrita de objectos. Esta biblioteca fornece atualização de progresso durante a leitura e escrita dos objectos, o que presumo que será uma boa experiência para o usuário.
+Veja a documentação em [`Português`](https://github.com/KelvenCassamo/File-Mozio-Java/tree/main/docs/pt)
+Note: The official documentation was written in [`Portuguese`](https://github.com/KelvenCassamo/File-Mozio-Java/tree/main/docs/pt).
 
-## Funcionalidades
+# FileMozio (Java)
 
-- **Leitura mais eficiente:** Esta biblioteca foi projectada exlusivamente para uma leitura mais eficiente de objectos a partir de arquivos.
-- **Escrita Rápida:** Inclusive oferece uma escrita maisrápida de objectos em arquivos.
-- **Atualização de Progresso:** Este recurso é útil, pois permite que os usuários acompanhem o progresso da leitura e escrita dos objectos.
+**FileMozio** is a simple Java library for file manipulation, focusing on reading and writing objects. This library provides progress updates during the reading and writing of objects, which I assume will be a good experience for the user.
+
+## Features
+
+- **More Efficient Reading:** This library is exclusively designed for more efficient reading of objects from files.
+- **Fast Writing:** It also offers faster writing of objects to files.
+- **Progress Update:** This feature is useful as it allows users to track the progress of reading and writing objects.
+
+## Installation
+
+Currently, FileMozio is not available in the Maven Central repository. But you can manually add the library to the project by following these steps:
+
+1. **Download the Library:**
+   Download the latest JAR file from the releases section [here](https://github.com/KelvenCassamo/File-Mozio-Java-releases) on GitHub.
+
+2. **Add the JAR to the Project:**
+   Place this JAR file in the project's library (libs) folder.
+
+## Using the FileMozio Library (in Java)
+To use FileMozio in Java, you can follow the steps below:
 
 
-## Instalação
+### 1. Importing the Library
 
-Atualmente, o FileMozio não está disponível no repositório Maven Central. Mas pode adicionar a biblioteca manualmente no projecto basta sehuir estas etapas:
-
-1. **Baixar a Biblioteca:**
-   Faça o download do arquivo JAR mais recente da secção de lançamentos [releases](https://github.com/KelvenCassamo/File-Mozio-Java-releases) no GitHub.
-
-2. **Adicionar o JAR ao Projecto:**
-   Coloque esse arquivo JAR na pasta de bibliotecas (libs) do projecto.
-
-## Uso da biblioteca FileMozio (em Java)
-Para utilizar o FileMozio em java, pode seguir as etapas abaixo:
-
-
-### 1. Importar a Biblioteca
-
-Primeiro devemos incluir a biblioteca FileMozio.
+First, we need to import the FileMozio library.
 ````java
 import mz.filemozio.*;
 import mz.filemozio.FileMozio;
 import mz.filemozio.interfaces.ObjectReadListener;
 import mz.filemozio.interfaces.ObjectWriteListener;
 `````
-### 2. Criar uma Instância da Classe FileMozio
+### 2. Create an Instance of the FileMozio Class
 
 ````java
 FileMozio fileMozio = new FileMozio();
 ````
-### 3. Configurar um listener para receber os Resultados
-Utilizaremos a interface `ObjectWriteListener` que será praticamene o nosso ouvinte que nos ajudará a lidar com os resultados.
+### 3. Set up a listener to receive the Results
+We will use the `ObjectWriteListener` interface which will be practically our listener that will help us deal with the results.
 
 ````java
-/// Criar listener para receber os resulados do objecto salvo.
+/// Create listener to receive the results of the saved object.
         fileMozio.createObjectWriteListener(new ObjectWriteListener() {
 
             @Override
@@ -59,8 +62,8 @@ Utilizaremos a interface `ObjectWriteListener` que será praticamene o nosso ouv
             }
         });
 ````
-### Criar um objecto para salvar
-Como exemplo, utilizaremos `ArrayList` que irá representar uma lista de nomes.
+### Create an object to save
+As an example, we will use `ArrayList` which will represent a list of names.
 
 ````java
 
@@ -81,33 +84,33 @@ nomes.add("Edilson");
 
 
 
-### Utilização do método writeObject()
-Lembre-se que podemos salvar varios tipos de objectos em arquivos, não apenas ArrayList. 
-Bem, o primeiro argumento do método `writeObject` recebe um objecto e o segundo recebe o destino, ou o famoso path.
-A estrutura é basicamente esta: `writeObject(Object, String)`.
+### Using the writeObject() method
+Remember that we can save several types of objects in files, not just ArrayList. 
+Well, the first argument of the `writeObject` method receives an object and the second receives the target, or the famous path.
+The structure is basically this: `writeObject(Object, String)`.
 
 ````java
 
-//Indicar o destino do arquivo que pretende criar.
-//exemplo: eu pretendo adiconar em um directório com o nome dados.
+//Indicate the destination of the file you want to create.
+//Example: I want to add in a directory with the name Data.
 String destino = "dados/nomes.bin";
 
-/// Escrever o objecto dos nomes no arquivo do destino.
-//Veja que neste exemplo segui a estrutura que apresentei e coloquei como o primeiro argumanto um objecto e como segundo uma String.
+/// Write the object names in the destination file.
+//Note that in this example i followed the structure i presented and placed an object as the first argument and a String as the second.
  fileMozio.writeObject(nomes, destino);
 
- ///Após executar, o arquivo será gerado no caminho do destino que forneu no segundo argumento.
+ ///After executing, the file will be generated in the path of the destination that you provided in the second argument.
 
 ````
 
 
 
 
-### 3. Configurar um listener para receber os eesultados da leitura
-Utilizaremos a interface `ObjectReadListener` que será praticamene o nosso ouvinte que nos ajudará a lidar com os resultados do objecto lido.
+### 3. Set up a listener to receive read results
+We will use the `ObjectReadListener` interface which will be practically our listener that will help us deal with the results of the read object.
 
 ````java
- /// Criar listener para receber os resulados da leitura.
+ /// Create a listener to receive the results of the reading.
  fileMozio.createObjectReadListener(new ObjectReadListener() {
 
             @Override
@@ -127,10 +130,10 @@ Utilizaremos a interface `ObjectReadListener` que será praticamene o nosso ouvi
         });
 ````
 
-### Manipular o resuldado da leitura
-Diferentemente do método `onSuccess` da interface `ObjectWriteListener`, o método `onSuccess` da interface `ObjectReadListener` recebe dois parâmetros o `Object` e o `String`.
-Após a leitura bem sucedida, o método `onSuccess` é chamado e lhe é atribuído dois argumentos que mencionei anteriormente.
-Abaixo, pegarei o trecho do método `onSuccess` da interface que criamos na secção anterior para que possamos manipular os resultados.
+### Handle the Reading Result
+Unlike the `onSuccess` method of the 'ObjectWriteListener' interface, the `onSuccess` method of the `ObjectReadListener` interface takes two parameters: `Object` and `String`.
+Upon successful reading, the `onSuccess` method is called and assigned two arguments that I mentioned earlier.
+Below, I'll take the snippet of the 'onSuccess' method from the interface we created in the previous section so that we can manipulate the results.
 
 ````java
 
@@ -150,28 +153,28 @@ Abaixo, pegarei o trecho do método `onSuccess` da interface que criamos na sec�
 
 ````
 
-Veja que neste trecho  `(ArrayList<String>) object;` fomos obrigados a realizar o **`cast`**, uma conversão dos valores do **`Object`** para **`ArrayList<String>`**.
+Note that in this snippet `(ArrayList<String>) object;` we were forced to perform **'cast'**, a conversion of the values of **'Object'** to **'ArrayList<String>'**.
 
-**ATENÇÃO:** Esta conversao não foi aleatória, antes de converter devemos garantir que o resultado que o resultado do objecto seja compatível com o tipo para qual pretende converter.
-
-
+**PLEASE NOTE:** This conversion was not random, before converting we must ensure that the result of the object is compatible with the type you want to convert to.
 
 
 
-### Utilização do método readObject()
-O método `readObject` recebe apenas um argumento, que será o caminho do arquivo que desejamos pegar.
-Este método obedece a seguinte estrutura: `readObject(String)`.
+
+
+### Using the readObject() method
+The `readObject` method takes only one argument, which will be the path of the file we want to grab.
+This method obeys the following structure: `readObject(String)`.
 ````java
 
-//Indicar o caminho do arquivo que pretende ler.
-//exemplo: eu pretendo ler o arquivo que possui a lista de nomes que salvei.
+//Enter the path of the file you want to read.
+//Example: I want to read the file that has the list of names I saved.
 String arquivo = "dados/nomes.bin";
 
-/// Ler o objecto dos nomes contidos no arquivo indicado.
-//Veja que neste exemplo segui a estrutura que apresentei e coloquei como argumanto uma String que representa o caminho.
+/// Read the object from the names contained in the given file.
+//Note that in this example I followed the structure I presented and put as an argument a String that represents the path.
  fileMozio.readObject(arquivo);
 
- ///Após executar, o arquivo será lido e o método onSuccess será chamado.
+ ///After execution, the file will be read and the onSuccess method will be called.
 
 ````
 
@@ -180,20 +183,20 @@ String arquivo = "dados/nomes.bin";
 ## Releases
 
 - **v1.0.0**
-  - Funcionalidades iniciais de leitura e escrita de objectos em arquivos.
-  - Atualizações de progresso durante a leitura e escrita.
+  - Initial features of reading and writing objects in archives.
+  - Progress updates while reading and writing.
 
-Para obter detalhes sobre cada versão, veja as [Notas de Versão](https://github.com/KelvenCassamo/File-Mozio-Java-releases).
+For details on each release, see the [Release Notes](https://github.com/KelvenCassamo/File-Mozio-Java-releases).
 
-## Instalação manual
+## Manual Installation
 
-Atualmente, o FileMozio não está disponível no repositório Maven Central. Mas pode adicionar a biblioteca manualmente projecto basta seguir as [instruções de instalação](#Instalação).
+Currently, FileMozio is not available in the Maven Central repository. But you can add the library manually to the project just follow the [installation instructions](#Instalação).
 
-## Contribuição
-As contribuições são bem-vindas! Pode sentir-se à vontade para abrir uma [(issue)](https://github.com/KelvenCassamo/File-Mozio-Java/issues) ou enviar [(pull requests)](https://github.com/KelvenCassamo/File-Mozio-Java/pulls) para melhorar a biblioteca.
+## Contribution
+Contributions are welcome! You can feel free to open an [(issue)](https://github.com/KelvenCassamo/File-Mozio-Java/issues) or submit [(pull requests)](https://github.com/KelvenCassamo/File-Mozio-Java/pulls) to improve the library.
 
-## Licença
-Este projecto está licenciado sob a Licença MIT. Pode ver no arquivo [LICENSE.md](https://github.com/KelvenCassamo/File-Mozio-Java/blob/main/LICENSE) para detalhes.
+## License
+This project is licensed under the MIT License. You can see the file [LICENSE.md](https://github.com/KelvenCassamo/File-Mozio-Java/blob/main/LICENSE) for details.
 
 
 
