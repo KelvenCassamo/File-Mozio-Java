@@ -1,5 +1,5 @@
 Veja a documentação em [`Português`](https://github.com/KelvenCassamo/File-Mozio-Java/tree/main/docs/pt)
-Note: The official documentation was written in [`Portuguese`](https://github.com/KelvenCassamo/File-Mozio-Java/tree/main/docs/pt).
+**Note:** The official documentation was written in [`Portuguese`](https://github.com/KelvenCassamo/File-Mozio-Java/tree/main/docs/pt).
 
 # FileMozio (Java)
 
